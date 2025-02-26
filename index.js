@@ -21,7 +21,7 @@ extension.setInstallationGuide(`
 extension.setEnvironmentVariables({
   WS_BASE_URL: {
     description: "The Web Socket base URL.",
-    defaultValue: `ws://home-assistant:8123`,
+    possibleValues: ["ws://home-assistant:8123", "wss://home-assistant.mydomain.net"],
   },
   ACCESS_TOKEN: {
     description: "The generated long-lived access token.",
@@ -281,7 +281,7 @@ extension.setFunctions([
           },
         })
       ) {
-        return "Error";
+        return "Error during internal request.";
       }
     }
     return "Done.";
@@ -297,7 +297,7 @@ extension.setFunctions([
           },
         })
       ) {
-        return "Error";
+        return "Error during internal request.";
       }
     }
     return "Done.";
@@ -313,7 +313,7 @@ extension.setFunctions([
           },
         })
       ) {
-        return "Error";
+        return "Error during internal request.";
       }
     }
     return "Done.";

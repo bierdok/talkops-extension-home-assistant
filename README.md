@@ -28,6 +28,7 @@ services:
   talkops-extension-home-assistant:
     image: bierdok/talkops-extension-home-assistant
     environment:
+      WS_BASE_URL: [your-value]
       ACCESS_TOKEN: [your-value]
     restart: unless-stopped
 ```
@@ -37,7 +38,7 @@ services:
 #### WS_BASE_URL
 
 The Web Socket base URL.
-* Default value: `ws://home-assistant:8123`
+* Possible values: `ws://home-assistant:8123` `wss://home-assistant.mydomain.net`
 
 #### ACCESS_TOKEN
 
@@ -47,3 +48,4 @@ The generated long-lived access token.
 
 A comma-separated list of WebSocket server URLs for real-time communication with specified agents.
 * Default value: `ws://talkops`
+* Possible values: `ws://talkops1` `ws://talkops2`
