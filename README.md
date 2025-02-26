@@ -1,4 +1,5 @@
 # TalkOps Extension: Home Assistant
+![Docker Pulls](https://img.shields.io/docker/pulls/bierdok/talkops-extension-home-assistant)
 
 A TalkOps Extension made to work with [TalkOps](https://link.talkops.app/talkops).
 
@@ -25,7 +26,7 @@ name: talkops
 services:
 ...
   talkops-extension-home-assistant:
-    image: ghcr.io/bierdok/talkops-extension-home-assistant
+    image: bierdok/talkops-extension-home-assistant
     environment:
       ACCESS_TOKEN: [your-value]
     restart: unless-stopped

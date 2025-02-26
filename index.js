@@ -3,7 +3,7 @@ import { Extension, Readme, Service } from "talkops";
 const extension = new Extension("Home Assistant");
 
 extension.setDockerRepository(
-  "ghcr.io/bierdok/talkops-extension-home-assistant"
+  "bierdok/talkops-extension-home-assistant"
 );
 
 extension.setDescription(`
