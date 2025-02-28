@@ -1,6 +1,6 @@
 {
   "name": "enable_scenes",
-  "description": "Enable scenes",
+  "description": "Trigger scenes",
   "parameters": {
     "type": "object",
     "properties": {

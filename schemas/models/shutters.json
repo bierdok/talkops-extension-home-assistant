@@ -13,7 +13,7 @@
       },
       "state": {
         "type": "string",
-        "enum": ["open", "close"],
+        "enum": ["opened", "unknown", "closed"],
         "description": "The shutter state"
       },
       "area_id": {

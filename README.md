@@ -5,6 +5,12 @@ A TalkOps Extension made to work with [TalkOps](https://link.talkops.app/talkops
 
 This Extension based on [Home Assistant](https://www.home-assistant.io/) allows you to control connected devices by voice in **realtime**.
 
+## Features
+* Lights: Check status, turn on/off
+* Shutters: Check status, open, close and stop
+* Scene: Trigger
+* Sensors: Check status
+
 ## Installation Guide
 
 _[TalkOps](https://link.talkops.app/install-talkops) must be installed beforehand._
@@ -37,7 +43,7 @@ services:
 
 #### WS_BASE_URL
 
-The Web Socket base URL.
+The Web Socket base URL of your Home Assistant server.
 * Possible values: `ws://home-assistant:8123` `wss://home-assistant.mydomain.net`
 
 #### ACCESS_TOKEN

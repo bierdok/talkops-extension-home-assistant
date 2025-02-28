@@ -8,6 +8,12 @@ extension.setDockerRepository(
 
 extension.setDescription(`
 This Extension based on [Home Assistant](https://www.home-assistant.io/) allows you to control connected devices by voice in **realtime**.
+
+## Features
+* Lights: Check status, turn on/off
+* Shutters: Check status, open, close and stop
+* Scene: Trigger
+* Sensors: Check status
 `);
 
 extension.setInstallationGuide(`
@@ -20,7 +26,7 @@ extension.setInstallationGuide(`
 
 extension.setEnvironmentVariables({
   WS_BASE_URL: {
-    description: "The Web Socket base URL.",
+    description: "The Web Socket base URL of your Home Assistant server.",
     possibleValues: ["ws://home-assistant:8123", "wss://home-assistant.mydomain.net"],
   },
   ACCESS_TOKEN: {
@@ -36,7 +42,7 @@ import sensorsModel from "./schemas/models/sensors.json" assert { type: "json" }
 import scenesModel from "./schemas/models/scenes.json" assert { type: "json" };
 
 import updateLightsFunction from "./schemas/functions/update_lights.json" assert { type: "json" };
-import enableScenesFunction from "./schemas/functions/enable_scenes.json" assert { type: "json" };
+import triggerScenesFunction from "./schemas/functions/trigger_scenes.json" assert { type: "json" };
 import updateShuttersFunction from "./schemas/functions/update_shutters.json" assert { type: "json" };
 
 const baseInstructions = `
@@ -245,7 +251,7 @@ function connect() {
           functionSchemas.push(updateLightsFunction);
         }
         if (scenes) {
-          functionSchemas.push(enableScenesFunction);
+          functionSchemas.push(triggerScenesFunction);
         }
         if (shutters) {
           functionSchemas.push(updateShuttersFunction);
@@ -270,7 +276,7 @@ function connect() {
 connect();
 
 extension.setFunctions([
-  async function enable_scenes(ids) {
+  async function trigger_scenes(ids) {
     for (const id of ids) {
       if (
         !call("call_service", {
