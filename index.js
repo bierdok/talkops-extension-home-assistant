@@ -56,6 +56,7 @@ Your sole task is to ask the user to install one or more connected devices in th
 `;
 
 import WebSocket from "ws";
+import yaml from "js-yaml";
 
 let id = 1;
 const types = new Map();
@@ -198,52 +199,39 @@ function connect() {
         }
       }
 
-      extension.setInstructions(() => {
-        const instructions = [];
-        instructions.push(baseInstructions);
+    extension.setInstructions(() => {
+      const instructions = [baseInstructions];
 
-        if (!lights && !shutters && !sensors && !scenes) {
-          instructions.push(defaultInstructions);
-        }
+      if (
+        !lights.length &&
+        !shutters.length &&
+        !sensors.length &&
+        !scenes.length
+      ) {
+        instructions.push(defaultInstructions);
+      } else {
+        instructions.push("``` yaml");
+        instructions.push(
+          yaml.dump({
+            floorsModel,
+            roomsModel,
+            lightsModel,
+            shuttersModel,
+            sensorsModel,
+            scenesModel,
+            floors,
+            rooms,
+            lights,
+            shutters,
+            sensors,
+            scenes,
+          })
+        );
+        instructions.push("```");
+      }
 
-        if (floors) {
-          instructions.push("# The floors");
-          instructions.push(`* Model: ${JSON.stringify(floorsModel)}`);
-          instructions.push(`* Data: ${JSON.stringify(floors)}`);
-        }
-
-        if (rooms) {
-          instructions.push("# The rooms");
-          instructions.push(`* Model: ${JSON.stringify(roomsModel)}`);
-          instructions.push(`* Data: ${JSON.stringify(rooms)}`);
-        }
-
-        if (lights) {
-          instructions.push("# The lights");
-          instructions.push(`* Model: ${JSON.stringify(lightsModel)}`);
-          instructions.push(`* Data: ${JSON.stringify(lights)}`);
-        }
-
-        if (shutters) {
-          instructions.push("# The shutters");
-          instructions.push(`* Model: ${JSON.stringify(shuttersModel)}`);
-          instructions.push(`* Data: ${JSON.stringify(shutters)}`);
-        }
-
-        if (sensors) {
-          instructions.push("# The sensors");
-          instructions.push(`* Model: ${JSON.stringify(sensorsModel)}`);
-          instructions.push(`* Data: ${JSON.stringify(sensors)}`);
-        }
-
-        if (scenes) {
-          instructions.push("# The scenes");
-          instructions.push(`* Model: ${JSON.stringify(scenesModel)}`);
-          instructions.push(`* Data: ${JSON.stringify(scenes)}`);
-        }
-
-        return instructions;
-      });
+      return instructions;
+    });
 
       extension.setFunctionSchemas(() => {
         const functionSchemas = [];
