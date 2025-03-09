@@ -34,16 +34,16 @@ extension.setEnvironmentVariables({
   },
 });
 
-import floorsModel from "./schemas/models/floors.json" assert { type: "json" };
-import roomsModel from "./schemas/models/rooms.json" assert { type: "json" };
-import lightsModel from "./schemas/models/lights.json" assert { type: "json" };
-import shuttersModel from "./schemas/models/shutters.json" assert { type: "json" };
-import sensorsModel from "./schemas/models/sensors.json" assert { type: "json" };
-import scenesModel from "./schemas/models/scenes.json" assert { type: "json" };
+import floorsModel from "./schemas/models/floors.json" with { type: "json" };
+import roomsModel from "./schemas/models/rooms.json" with { type: "json" };
+import lightsModel from "./schemas/models/lights.json" with { type: "json" };
+import shuttersModel from "./schemas/models/shutters.json" with { type: "json" };
+import sensorsModel from "./schemas/models/sensors.json" with { type: "json" };
+import scenesModel from "./schemas/models/scenes.json" with { type: "json" };
 
-import updateLightsFunction from "./schemas/functions/update_lights.json" assert { type: "json" };
-import triggerScenesFunction from "./schemas/functions/trigger_scenes.json" assert { type: "json" };
-import updateShuttersFunction from "./schemas/functions/update_shutters.json" assert { type: "json" };
+import updateLightsFunction from "./schemas/functions/update_lights.json" with { type: "json" };
+import triggerScenesFunction from "./schemas/functions/trigger_scenes.json" with { type: "json" };
+import updateShuttersFunction from "./schemas/functions/update_shutters.json" with { type: "json" };
 
 const baseInstructions = `
 You are a home automation assistant, focused solely on managing connected devices in the home.
