@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "talkops": "^1.4.0"
+    "talkops": "^1.4.5"
   },
   "type": "module"
 }

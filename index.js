@@ -7,7 +7,7 @@ extension.setDockerRepository(
 );
 
 extension.setDescription(`
-This Extension based on [Home Assistant](https://www.home-assistant.io/) allows you to control connected devices by voice in **realtime**.
+This Extension based on [Home Assistant](https://www.home-assistant.io/) allows you to control connected devices ***by voice in real-time**.
 
 ## Features
 * Lights: Check status, turn on/off
