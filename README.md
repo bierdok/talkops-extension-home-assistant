@@ -37,6 +37,8 @@ services:
       WS_BASE_URL: [your-value]
       ACCESS_TOKEN: [your-value]
     restart: unless-stopped
+
+
 ```
 
 ## Environment Variables
